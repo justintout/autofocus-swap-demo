@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>autofocus Swap Demo</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+  <style>
+    body {
+      max-width: 120ch;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><code>autofocus</code> Swap Demo</h1>
+  </header>
+  <main>
+    <section>
+      <ul>
+
+      </ul>
+      <button type="button" title="Add an input to the list" hx-get="/input" hx-swap="beforeend"
+        hx-target="previous ul">+</button>
+    </section>
+    <aside>
+      <p>
+        In the demo to the left, you can add input fields to the list.
+      </p>
+      <p>
+        When you click on the "+" button, it triggers an htmx swap.
+        The htmx swap respects the new input's <code>autofocus</code> attribute as expected.
+      </p>
+      <p>
+        When you press the <kbd>Enter</kbd> key, it triggers a hyperscript fetch/put swap.
+        The hyperscript version does <strong>not</strong> respect the new input's <code>autofocus</code> attribute.
+      </p>
+      </p>
+    </aside>
+  </main>
+
+</body>
+
+</html>
