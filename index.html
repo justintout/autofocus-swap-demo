@@ -21,6 +21,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
+
+    .bad {
+      background: rgba(255, 0, 0, .2)
+    }
+
+    .good {
+      background: rgba(0, 255, 0, .2)
+    }
   </style>
 </head>
 
@@ -33,21 +41,31 @@
       <ul>
 
       </ul>
-      <button type="button" title="Add an input to the list" hx-get="/autofocus-swap-demo/list-input.html"
-        hx-swap="beforeend" hx-target="previous ul">+</button>
+      <button type="button" title="Add an input to the list" hx-get="/hyperscript-input" hx-swap="beforeend"
+        hx-target="previous ul">Add hyperscript input</button>
+      <button type="button" title="Add an input to the list" hx-get="/htmx-input" hx-swap="beforeend"
+        hx-target="previous ul">Add htmx input</button>
     </section>
     <aside>
       <p>
         In the demo to the left, you can add input fields to the list.
       </p>
       <p>
-        When you click on the "+" button, it triggers an htmx swap.
+        When you click on the "Add hyperscript input" button, it triggers an htmx swap to get a hyperscript-based input.
         The htmx swap respects the new input's <code>autofocus</code> attribute as expected.
+        When you press <kbd>Enter</kbd> key inside a hyperscript-based input, it will use hyperscript to add another.
+        This swap will <strong>not</strong> respect the new element's <code>autofocus</code> attribute.
       </p>
       <p>
-        When you press the <kbd>Enter</kbd> key, it triggers a hyperscript fetch/put swap.
-        The hyperscript version does <strong>not</strong> respect the new input's <code>autofocus</code> attribute.
+        When you click on the "Add htmx input" button, it triggers an htmx swap to get an htmx-based input.
+        The htmx swap respects the new input's <code>autofocus</code> attribute as expected.
+        When you press <kbd>Enter</kbd> key inside an htmx-based input, it will use <code>hx-trigger</code> to add
+        another.
+        This swap <strong>will</strong> respect the new element's <code>autofocus</code> attribute.
       </p>
+      <p>
+        The difference here is that hyperscript fetch/put is <a
+          href="https://x.com/htmx_org/status/17974628107102127600">much more raw</a> than htmx swaps.
       </p>
     </aside>
   </main>
