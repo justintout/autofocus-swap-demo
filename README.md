@@ -1,11 +1,6 @@
 # `autofocus` Swap Demo 
 
-> Asking the difference between HTMX swaps vs _hyperscript fetch/put wrt. the `autofocus` attribute on inputs.
+> This branch is for the GitHub pages demo, based on the main branch.
 
-## Running the demo 
+[Demo here](https://justintout.github.io/autofocus-swap-demo/).
 
-```
-git clone git@github.com:justintout/autofocus-swap-demo.git
-cd autofocus-swap-demo
-go run .
-```
